@@ -5503,7 +5503,7 @@ class Core:
         it to the drawing) if it was deleted during the current editing session.
         """
     @staticmethod
-    def entGet(id: PyDb.ObjectId, /) -> list:
+    def entGet(id: PyDb.ObjectId, /) -> list[tuple[int, Any]]:
         """
         Retrieves the specified entity from the drawing database and returns its definition data as
         a linked list of result buffers. This function is used also to examine dictionaries. The
@@ -5525,7 +5525,7 @@ class Core:
         pass the entity name to acdbEntGet().
         """
     @staticmethod
-    def entGetX(id: PyDb.ObjectId, xdata: list, /) -> list:
+    def entGetX(id: PyDb.ObjectId, xdata: list, /) -> list[tuple[int, Any]]:
         """
         Retrieves the entity specified by ent from the drawing database including extended entity
         data that is registered to the application, and returns its definition data as a linked
@@ -6031,7 +6031,7 @@ class Core:
         AcDbHostApplicationServices::DisplayString(). Returns Acad::eOk if successful.
         """
     @staticmethod
-    def resbufTest(resultBuffer: list, /) -> list: ...
+    def resbufTest(resultBuffer: list, /) -> list[tuple[int, Any]]: ...
     @staticmethod
     def resolveCurrentXRefs(
         db: PyDb.Database, useThreadEngine: bool, doNewOnly: bool, /
