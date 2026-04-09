@@ -15729,7 +15729,11 @@ class Field(PyDb.DbObject):
         """
     @overload
     def getFieldCode(
-        self, nContext: PyDb.FieldCodeFlag, children: PyDb.Field, mode: PyDb.OpenMode, /
+        self,
+        nContext: PyDb.FieldCodeFlag,
+        children: Collection[PyDb.Field],
+        mode: PyDb.OpenMode,
+        /,
     ) -> str:
         """
         This function can be used to get a field code in various forms. The child field codes in
@@ -15780,6 +15784,41 @@ class Field(PyDb.DbObject):
         """
         Sets the ID of the evaluator to be used for evaluating the field. Returns Acad::eOk if
         successful; otherwise, returns an AutoCAD error status.
+        """
+    @overload
+    def setFieldCode(self, pszFieldCode: str, /) -> None:
+        """
+        Sets the field code. For fields attached to AcDbObject objects, the AcDbObject object
+        should be closed before calling setFieldCode() to ensure the field contents are updated
+        correctly. Returns Acad::eOk if successful; otherwise, returns an AutoCAD error status.
+        """
+    @overload
+    def setFieldCode(self, pszFieldCode: str, nFlag: PyDb.FieldCodeFlag, /) -> None:
+        """
+        Sets the field code. For fields attached to AcDbObject objects, the AcDbObject object
+        should be closed before calling setFieldCode() to ensure the field contents are updated
+        correctly. Returns Acad::eOk if successful; otherwise, returns an AutoCAD error status.
+        """
+    @overload
+    def setFieldCode(
+        self,
+        pszFieldCode: str,
+        nFlag: PyDb.FieldCodeFlag,
+        children: Collection[PyDb.Field],
+        mode: PyDb.OpenMode,
+        /,
+    ) -> None:
+        """
+        Sets the field code. For fields attached to AcDbObject objects, the AcDbObject object
+        should be closed before calling setFieldCode() to ensure the field contents are updated
+        correctly. Returns Acad::eOk if successful; otherwise, returns an AutoCAD error status.
+        """
+    @overload
+    def setFieldCode(self, *args) -> None:
+        """
+        Sets the field code. For fields attached to AcDbObject objects, the AcDbObject object
+        should be closed before calling setFieldCode() to ensure the field contents are updated
+        correctly. Returns Acad::eOk if successful; otherwise, returns an AutoCAD error status.
         """
     def setFormat(self, pszFormat: str, /) -> None:
         """
