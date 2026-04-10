@@ -15441,13 +15441,13 @@ class Fcf(PyDb.Entity):
         future releases. Use a call to setDimensionStyle() followed by a call to setDimstyleData()
         instead.
         """
-    def setDimclrd(self, newColor: Color, /) -> None:
+    def setDimclrd(self, newColor: PyDb.Color, /) -> None:
         """
         Sets the AutoCAD color index within val to be the DIMCLRD value for the feature control
         frame as an override. This function returns Acad::eOk if successful. See the System
         Variables section of the AutoCAD Command Reference manual for information on DIMCLRD.
         """
-    def setDimclrt(self, newColor: Color, /) -> None:
+    def setDimclrt(self, newColor: PyDb.Color, /) -> None:
         """
         Sets the AutoCAD color index within val to be the DIMCLRT value for the feature control
         frame as an override. This function returns Acad::eOk if successful. See the System
